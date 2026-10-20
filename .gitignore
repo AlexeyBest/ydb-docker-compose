@@ -1,0 +1,18 @@
+# YDB certificates
+ydb_certs/
+
+# YDB runtime data
+ydb_data/
+
+# Docker environment files
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo

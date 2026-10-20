@@ -1,0 +1,74 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: ydb_ydb
+    metrics_path: /counters/counters=ydb/name_label=name/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_utils
+    metrics_path: /counters/counters=utils/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_tablets
+    metrics_path: /counters/counters=tablets/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_proxy
+    metrics_path: /counters/counters=proxy/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_dsproxynode
+    metrics_path: /counters/counters=dsproxynode/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_pdisks
+    metrics_path: /counters/counters=pdisks/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_vdisks
+    metrics_path: /counters/counters=vdisks/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_kqp
+    metrics_path: /counters/counters=kqp/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_grpc
+    metrics_path: /counters/counters=grpc/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_auth
+    metrics_path: /counters/counters=auth/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
+
+  - job_name: ydb_coordinator
+    metrics_path: /counters/counters=coordinator/prometheus
+    static_configs:
+      - targets: ["ydb:8765"]
+        labels: { container: ydb, host: ydb-local }
